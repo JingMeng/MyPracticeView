@@ -1,13 +1,13 @@
-package com.starschina.sdk.demo.common;
+﻿package com.starschina.sdk.demo.common;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -69,8 +69,7 @@ public class VideoActivity extends FragmentActivity{
 
 		initPlayer();
 		addBannerAd();
-		//只有直播才去加载节目单
-		if (mChannel.type == 1) {
+		//鍙湁鐩存挱鎵嶅幓鍔犺浇鑺傜洰鍗?		if (mChannel.type == 1) {
 			addEpg();
 		}
 	}
@@ -98,10 +97,9 @@ public class VideoActivity extends FragmentActivity{
 		mPlayerView.setBackgroundResource(R.color.black);
 //		((RelativeLayout)findViewById(R.id.player)).addView(mPlayerView);
 		mPlayerView.setPlayerListener(mListener);
-		//是否硬解,(开硬解，可解决偶尔绿屏)
+		//鏄惁纭В,(寮€纭В锛屽彲瑙ｅ喅鍋跺皵缁垮睆)
 		//mPlayerView.useMediaCodec(true);
-		//设置播放器参数
-//		Map<Integer, Map<String, Long>> options = new HashMap<>();
+		//璁剧疆鎾斁鍣ㄥ弬鏁?//		Map<Integer, Map<String, Long>> options = new HashMap<>();
 //		Map<String, Long> option_1 = new HashMap<>();
 //		option_1.put("skip_loop_filter", (long) -16);
 //		option_1.put("skip_idct", (long) -16);
@@ -112,16 +110,15 @@ public class VideoActivity extends FragmentActivity{
 //		options.put(IjkMediaPlayer.OPT_CATEGORY_PLAYER, option_2);
 //		mPlayerView.setPlayerOptions(options);
 
-		//自定义loading view
+		//鑷畾涔塴oading view
 		mLoadingView = new LoadingView(this);
 		mPlayerView.setLoadingView(mLoadingView);
-		//自定义播控界面
-		mCtrlView = new VideoCtrlView(this, mPlayerView);
+		//鑷畾涔夋挱鎺х晫闈?		mCtrlView = new VideoCtrlView(this, mPlayerView);
 		mPlayerView.setMediaCtrlView(mCtrlView);
 		mCtrlView.setTitle(mChannel.name);
 		mCtrlView.setVisibility(View.INVISIBLE);
 		mCtrlView.setChannel(mChannel);
-		//直播
+		//鐩存挱
 		if (mChannel.type == 1 && mChannel.currentEpg != null) {
 			mCtrlView.setEpgTime(mChannel.currentEpg.startTime, mChannel.currentEpg.endTime);
 		}
@@ -130,8 +127,7 @@ public class VideoActivity extends FragmentActivity{
 	private void addBannerAd() {
 		RelativeLayout adContainer = (RelativeLayout) findViewById(R.id.ad_container);
 		mAd = new StarsChinaAd(this);
-		mAd.setOrientation(0);//0:竖屏， 1：横屏
-		mAd.addBannerAd(adContainer, mChannel.id+"");
+		mAd.setOrientation(0);//0:绔栧睆锛?1锛氭í灞?		mAd.addBannerAd(adContainer, mChannel.id+"");
 	}
 
 	private void addEpg() {
@@ -163,16 +159,16 @@ public class VideoActivity extends FragmentActivity{
 	@Subscribe
 	public void onEventFromPlayer(SimpleEvent event) {
 		switch (event.mType) {
-			//回看
+			//鍥炵湅
 			case EventConst.EVENT_LIVE_SEEK_BY_EPG:
 				EpgEntity epg = (EpgEntity) event.mObj;
 				if (epg.getStartTime() > System.currentTimeMillis()/1000) {
-					Toast.makeText(this, "只能回看已播放了的节目!", Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, "鍙兘鍥炵湅宸叉挱鏀句簡鐨勮妭鐩?", Toast.LENGTH_SHORT).show();
 					return;
 				}
 				epgstarttime = epg.getStartTime();
 				epgendtime = epg.getEndTime();
-				//回看要重新加载播放中广告
+				//鍥炵湅瑕侀噸鏂板姞杞芥挱鏀句腑骞垮憡
 				//mPlayerView.ifShowPlayingAd(true);
 				mPlayerView.seekByEpg(epg.getStartTime(), true);
 				mCtrlView.refreshPlayerStatus(false);
@@ -183,10 +179,9 @@ public class VideoActivity extends FragmentActivity{
 					mCtrlView.setVisibility(View.VISIBLE);
 				}
 				break;
-			//时移
+			//鏃剁Щ
 			case EventConst.EVENT_LIVE_SEEK:
-				//时移不用重新加载播放中广告
-				//mPlayerView.ifShowPlayingAd(false);
+				//鏃剁Щ涓嶇敤閲嶆柊鍔犺浇鎾斁涓箍鍛?				//mPlayerView.ifShowPlayingAd(false);
 				Log.d("demo", "seek time:"+event.mObj);
 				mPlayerView.seekByEpg((Integer) event.mObj, false);
 				mCtrlView.refreshPlayerStatus(false);
@@ -199,7 +194,7 @@ public class VideoActivity extends FragmentActivity{
 			case EventConst.EVENT_EXIT:
 				finish();
 				break;
-			//回到直播
+			//鍥炲埌鐩存挱
 			case EventConst.EVENT_TO_LIVE:
 				mPlayerView.toLive();
 				mCtrlView.setEpgTime(mChannel.currentEpg.startTime, mChannel.currentEpg.endTime);
@@ -262,8 +257,7 @@ public class VideoActivity extends FragmentActivity{
 		if (mChannel.type ==  1) {
 			mCtrlView.ifShowReviewButton(true);
 		}
-		mAd.setOrientation(1);//0:竖屏， 1：横屏
-		//findViewById(R.id.ad_container).setVisibility(View.GONE);
+		mAd.setOrientation(1);//0:绔栧睆锛?1锛氭í灞?		//findViewById(R.id.ad_container).setVisibility(View.GONE);
 	}
 	
 	public void portrait(){
@@ -280,8 +274,7 @@ public class VideoActivity extends FragmentActivity{
 		if (mChannel.type ==  1) {
 			mCtrlView.ifShowReviewButton(false);
 		}
-		mAd.setOrientation(0);//0:竖屏， 1：横屏
-		//findViewById(R.id.ad_container).setVisibility(View.VISIBLE);
+		mAd.setOrientation(0);//0:绔栧睆锛?1锛氭í灞?		//findViewById(R.id.ad_container).setVisibility(View.VISIBLE);
 
 		if (mLiveReviewMenu != null && mLiveReviewMenu.isShown()) {
 			mLiveReviewMenu.hide();
@@ -451,19 +444,19 @@ public class VideoActivity extends FragmentActivity{
 				// TODO Auto-generated method stub
 				if (orientation > 225 && orientation < 315) {
 	                if (isPortrait) {
-	                	Log.d("demo", "切换成横屏");
+	                	Log.d("demo", "鍒囨崲鎴愭í灞?);
 	                	requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 	                	landscape(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 	                }
 	            } else if (orientation > 45 && orientation < 135) {
 					if (isPortrait) {
-						Log.d("demo", "切换成横屏");
+						Log.d("demo", "鍒囨崲鎴愭í灞?);
 						requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
 						landscape(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
 					}
 				} else if ((orientation > 315 && orientation < 360) || (orientation > 0 && orientation < 45)) {
 	                if (!isPortrait) {
-	                	Log.d("demo", "切换成竖屏");
+	                	Log.d("demo", "鍒囨崲鎴愮珫灞?);
 	                	requestedOrientation(1);
 	                	portrait();
 	                }
@@ -472,3 +465,4 @@ public class VideoActivity extends FragmentActivity{
 		};
 	}
 }
+

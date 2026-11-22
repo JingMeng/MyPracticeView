@@ -1,11 +1,11 @@
-package com.starschina.sdk.demo.common.menu;
+﻿package com.starschina.sdk.demo.common.menu;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -102,8 +102,8 @@ public class LiveReviewMenu extends BaseMenu implements View.OnClickListener{
     private void initData() {
         tabTitles[0] = DateUtils.getFormerlyTimeString(3);
         tabTitles[1] = DateUtils.getFormerlyTimeString(2);
-        tabTitles[2] = "昨天";
-        tabTitles[3] = "今天";
+        tabTitles[2] = "鏄ㄥぉ";
+        tabTitles[3] = "浠婂ぉ";
     }
 
     @Override
@@ -152,3 +152,4 @@ public class LiveReviewMenu extends BaseMenu implements View.OnClickListener{
         }
     }
 }
+

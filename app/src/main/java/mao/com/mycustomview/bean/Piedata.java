@@ -1,6 +1,6 @@
 package mao.com.mycustomview.bean;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by 毛麒添 on 2017/10/24 0024.

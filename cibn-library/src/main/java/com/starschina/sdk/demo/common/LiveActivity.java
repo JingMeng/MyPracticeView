@@ -1,10 +1,10 @@
-package com.starschina.sdk.demo.common;
+﻿package com.starschina.sdk.demo.common;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -77,3 +77,4 @@ public class LiveActivity extends Activity {
         }
     };
 }
+

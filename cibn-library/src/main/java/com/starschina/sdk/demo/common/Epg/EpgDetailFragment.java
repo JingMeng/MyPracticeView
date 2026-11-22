@@ -1,12 +1,12 @@
-package com.starschina.sdk.demo.common.Epg;
+﻿package com.starschina.sdk.demo.common.Epg;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +39,7 @@ public class EpgDetailFragment extends Fragment implements IEpgView{
     private boolean mIsMove;
     private int mPos = -1, mOldPos = -1, mCurrPos = -1;
     private long mMils;
-    private long mId;//可以改为从presenter返回
+    private long mId;//鍙互鏀逛负浠巔resenter杩斿洖
     private boolean mIsReview, mLastReview, mIsMenu;
     private int mPosition, mIndex, mPreviousPosition = -1;
 
@@ -201,11 +201,11 @@ public class EpgDetailFragment extends Fragment implements IEpgView{
 
             holder.mPlay.setVisibility(View.VISIBLE);
             if (epg.getStatus() == 1) {
-                holder.mPlay.setText("直播中");
+                holder.mPlay.setText("鐩存挱涓?);
             }else if (epg.getStatus() == 0) {
-                holder.mPlay.setText("回看");
+                holder.mPlay.setText("鍥炵湅");
             }else {
-                holder.mPlay.setText("即将播放");
+                holder.mPlay.setText("鍗冲皢鎾斁");
             }
 
             if (mData.get(position).isSelected()) {
@@ -253,3 +253,4 @@ public class EpgDetailFragment extends Fragment implements IEpgView{
         void onItemClick(int pos, int selected_pos);
     }
 }
+

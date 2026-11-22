@@ -2,8 +2,8 @@ package mao.com.mycustomview.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,7 +13,7 @@ import mao.com.mycustomview.R;
 
 /**
  * Created by maoqitian on 2018/12/15 0015.
- * Lottie 收藏动画效果 测试
+ * Lottie 鏀惰棌鍔ㄧ敾鏁堟灉 娴嬭瘯
  */
 
 public class LottieActivity extends AppCompatActivity {
@@ -37,11 +37,11 @@ public class LottieActivity extends AppCompatActivity {
                 if(collectstata == NO_COLLECTED){
                     lottieAnimationView.playAnimation();
                     collectstata = COLLECTED;
-                    Toast.makeText(LottieActivity.this,"收藏成功",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LottieActivity.this,"鏀惰棌鎴愬姛",Toast.LENGTH_SHORT).show();
                 }else if(collectstata == COLLECTED){
                     collectstata=NO_COLLECTED;
                     lottieAnimationView.setAnimation("heart.json");
-                    Toast.makeText(LottieActivity.this,"取消收藏",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LottieActivity.this,"鍙栨秷鏀惰棌",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -49,3 +49,4 @@ public class LottieActivity extends AppCompatActivity {
 
 
 }
+

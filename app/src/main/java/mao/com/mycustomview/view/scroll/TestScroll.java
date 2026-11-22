@@ -2,8 +2,8 @@ package mao.com.mycustomview.view.scroll;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;

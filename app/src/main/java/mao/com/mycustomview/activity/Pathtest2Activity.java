@@ -1,13 +1,13 @@
 package mao.com.mycustomview.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import mao.com.mycustomview.view.PathView2;
 
 /**
- * Created by 毛麒添 on 2017/12/18 0018.
+ * Created by 姣涢簰娣?on 2017/12/18 0018.
  */
 
 public class Pathtest2Activity extends AppCompatActivity {
@@ -17,3 +17,4 @@ public class Pathtest2Activity extends AppCompatActivity {
         setContentView(new PathView2(this));
     }
 }
+

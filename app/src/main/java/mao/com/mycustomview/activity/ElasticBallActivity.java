@@ -1,8 +1,8 @@
 package mao.com.mycustomview.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,9 +11,8 @@ import mao.com.mycustomview.view.elastic.ElasticballView;
 
 
 /**
- * Created by 毛麒添 on 2017/11/29 0029.
- * 自定义控件 滑动弹性小球
- */
+ * Created by 姣涢簰娣?on 2017/11/29 0029.
+ * 鑷畾涔夋帶浠?婊戝姩寮规€у皬鐞? */
 
 public class ElasticBallActivity extends AppCompatActivity {
 
@@ -33,3 +32,4 @@ public class ElasticBallActivity extends AppCompatActivity {
         });
     }
 }
+

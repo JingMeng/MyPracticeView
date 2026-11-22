@@ -1,8 +1,8 @@
 package mao.com.mycustomview.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -11,9 +11,8 @@ import mao.com.mycustomview.view.Bezier.BezierView;
 import mao.com.mycustomview.view.Bezier.BezierView2;
 
 /**
- * Created by 毛麒添 on 2017/11/6 0006.
- * 贝塞尔曲线
- */
+ * Created by 姣涢簰娣?on 2017/11/6 0006.
+ * 璐濆灏旀洸绾? */
 
 public class BezierActivity extends AppCompatActivity {
 
@@ -44,3 +43,4 @@ public class BezierActivity extends AppCompatActivity {
         });*/
     }
 }
+
